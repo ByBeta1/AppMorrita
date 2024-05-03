@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Quieres ser mi novia?</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-image: url('foto1.jpg'); /* Cambia 'fondo.jpg' por la ruta de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  h1 {
+    color: rgb(132, 0, 255);
+  }
+  button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: 3px solid #000; /* Ajustamos el ancho del borde */
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  #si {
+    font-size: 20px;
+  }
+  #message {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+  }
+
+  /* Estilos responsivos para dispositivos móviles */
+  @media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 24px;
+    }
+    button {
+      font-size: 14px;
+    }
+  }
+</style>
+</head>
+<body>
+  <h1>¿Quieres ser mi novia?</h1>
+  <button id="si">Sí</button>
+  <button id="no">No</button>
+  <div id="message">Yo también te amo, bb vamos a besarnos jiji</div>
+
+<script>
+  const botonNo = document.getElementById('no');
+  const botonSi = document.getElementById('si');
+  const messageDiv = document.getElementById('message');
+  
+  botonNo.addEventListener('click', function() {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const randomX = Math.random() * (screenWidth - 100);
+    const randomY = Math.random() * (screenHeight - 40);
+    
+    botonNo.style.position = 'absolute';
+    botonNo.style.left = randomX + 'px';
+    botonNo.style.top = randomY + 'px';
+    
+    const fontSize = parseInt(window.getComputedStyle(botonSi).fontSize);
+    botonSi.style.fontSize = (fontSize + 20) + 'px';
+  });
+
+  botonSi.addEventListener('click', function() {
+    // Mostrar el mensaje
+    messageDiv.style.display = 'block';
+  });
+</script>
+</body>
+</html>
